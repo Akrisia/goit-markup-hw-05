@@ -18,6 +18,7 @@
   --main-text-size: 14px;
   --small-margin: 10px;
   --main-border-radius: 4px;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -64,6 +65,7 @@ ul {
 
 .link {
   text-decoration: none;
+  transition: color 250ms var(--timing-function);
 }
 
 .link:hover,
@@ -147,10 +149,26 @@ ul {
 
 .site-nav-link {
   color: var(--title-text-color);
+
+  position: relative;
 }
 
 .site-nav-link.current {
   color: var(--accent-color);
+}
+
+.site-nav-link.current::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .contact-link {
@@ -165,6 +183,7 @@ ul {
 .contact-icon {
   fill: var(--primary-text-color);
   margin-right: var(--small-margin);
+  transition: fill 250ms var(--timing-function);
 }
 
 .contact-link:hover .contact-icon,
@@ -230,6 +249,8 @@ ul {
   border-radius: var(--main-border-radius);
 
   cursor: pointer;
+  transition: color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 }
 
 .hero-btn:hover,
@@ -380,6 +401,7 @@ ul {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  transition: background-color 250ms var(--timing-function);
 }
 
 .social-link.member {
@@ -388,6 +410,7 @@ ul {
 
 .social-icon.member {
   fill: var(--team-social-icon-color);
+  transition: fill 250ms var(--timing-function);
 }
 
 .social-link.member:hover .social-icon,
@@ -431,6 +454,7 @@ ul {
   height: 100%;
   border: 1px solid var(--team-social-icon-color);
   border-radius: var(--main-border-radius);
+  transition: border-color 250ms var(--timing-function);
 }
 
 .client-link:hover,
@@ -440,6 +464,7 @@ ul {
 
 .client-icon {
   fill: var(--team-social-icon-color);
+  transition: fill 250ms var(--timing-function);
 }
 
 .client-link:hover .client-icon,
