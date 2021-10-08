@@ -397,5 +397,13 @@
 <!-- скрипт модального окна -->
     <script src="./js/modal.js"></script>
 
+<!-- скрипт хэдэра -->
+    <script>
+        const { height: pageHeaderHeight } = document
+                .querySelector(".header")
+                .getBoundingClientRect();
+
+            document.body.style.paddingTop = `${pageHeaderHeight}px`;
+    </script>
 </body>
 </html>
